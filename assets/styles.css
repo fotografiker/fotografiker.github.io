@@ -9,6 +9,9 @@ body{
     color: var(--text);
     padding : 40px;
 }
+.container-top {
+    min-height:100vh;
+}
 .logo-container {
     width:200px;
 }
@@ -16,7 +19,7 @@ body{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    min-height: 100vh;
+    min-height: 100%;
     z-index: 100;
 }
 .lottie lottie-player{
