@@ -9,6 +9,9 @@ body{
     color: var(--text);
     padding : 40px;
 }
+.logo-container {
+    width:200px;
+}
 .lottie{
     display: flex;
     justify-content: space-between;
