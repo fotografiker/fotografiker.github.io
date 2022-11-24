@@ -1,0 +1,33 @@
+:root{
+--bg-body : #291a31;
+--text : #e8cdf6;
+
+}
+
+body{
+    background-color: var(--bg-body);
+    color: var(--text);
+    padding : 40px;
+}
+.lottie{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 100vh;
+}
+.lottie lottie-player{
+    flex-grow: 1;
+}
+.lottie h1{
+    font-size: 4rem;
+    text-align: center;
+    flex-grow: 2;
+    flex-basis: 800px;
+}
+.text-block {
+    display: block;
+}
+.font-weight-bold
+{
+    display: block;
+}
