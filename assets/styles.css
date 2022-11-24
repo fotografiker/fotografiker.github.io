@@ -1,6 +1,10 @@
 :root{
 --bg-body : #291a31;
 --text : #e8cdf6;
+--purple: #8e44ad;
+--yellow: #f1c40f;
+
+
 
 }
 
@@ -11,6 +15,11 @@ body{
 }
 .container-top {
     min-height:100vh;
+}
+
+nav{
+    display:flex;
+    justify-content: space-between;
 }
 .logo-container {
     width:200px;
@@ -25,6 +34,9 @@ body{
 .lottie lottie-player{
     flex-grow: 1;
     z-index: 110;
+}
+.text-purple{
+    color: var(--purple);
 }
 .lottie h1{
     font-size: 4rem;
