@@ -53,7 +53,8 @@ window.onload = function() {
 	css.type = "text/css";
 	css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid transparent}";
 	document.body.appendChild(css);
-    /* menu */
+    
+	/* menu */
     const Menu = () => {
     const menu = document.querySelector('.menu');
     const icon = menu.querySelector('.menu__icon');
