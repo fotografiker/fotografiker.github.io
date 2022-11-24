@@ -14,9 +14,11 @@ body{
     justify-content: space-between;
     align-items: center;
     min-height: 100vh;
+    z-index: 100;
 }
 .lottie lottie-player{
     flex-grow: 1;
+    z-index: 110;
 }
 .lottie h1{
     font-size: 4rem;
