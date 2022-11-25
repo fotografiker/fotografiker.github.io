@@ -98,6 +98,7 @@ padding : 40px;
 
 }
 section#first{
+
     background-color: var(--bg-body);
 
 
@@ -115,6 +116,7 @@ section#biz-kimiz{
     text-align: center;
     flex-grow: 2;
     flex-basis: 800px;
+    color:white;
 }
 .text-block {
     display: block;
@@ -326,6 +328,13 @@ section#iletisim a:hover{
         flex-direction: column;
         justify-content: center;
     }
+    .logo-container{
+        width:100%;
+    }
+    nav{
+        flex-direction: column;
+        justify-content: center;
+    }
     lottie-player{
         width:500px!important;
     }
@@ -333,13 +342,19 @@ section#iletisim a:hover{
         flex-direction: column-reverse;
     }
     .lottie h1{
-        font-size: 2rem;
+        font-size: 3rem;
+        flex-basis: auto;
     }
-    .scroll,  #particle-container {
+    .scroll,  #particle-container, .menu {
         display: none;
     }
 
-    .flip-box-front{
+    .flip-box-front, .flip-box-back{
         position: relative;
+    }
+    .circle {
+        width: 50px;
+        height: 50px;
+        border-width: 2px;
     }
 }
