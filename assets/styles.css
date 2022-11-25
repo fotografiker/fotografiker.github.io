@@ -196,12 +196,15 @@ mark {
   width: 100%;
   height: 100%;
   text-align: center;
-  transition: transform 1s;
+  transition: all 1s;
   transform-style: preserve-3d;
 }
 
 .flip-box:hover .flip-box-inner {
   transform: rotateY(180deg);
+}
+.flip-box:hover{
+    border : 1px solid var(--purple);
 }
 
 .flip-box-front,
