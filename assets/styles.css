@@ -105,6 +105,7 @@ section#first{
 section#ne-yapiyoruz{
     background-color: var(--green);
     color: white;
+    justify-content: center;
 }
 section#biz-kimiz{
     background-color: var(--black);
@@ -292,4 +293,53 @@ section#biz-kimiz {
 }
 .name {
     margin:0;
+}
+
+section#iletisim{
+    min-height:40px;
+   
+    display: block;
+    padding: 20px;
+    text-align: center;
+}
+
+section#iletisim a{
+    background-color: white;
+    padding:10px;
+    margin: 10px;
+    color: var(--purple);
+border-color:  var(--purple);
+border-style: solid;
+    
+    border-width: 0 4px 4px 0;
+    transition: all 0.5s;
+}
+section#iletisim a:hover{
+    background-color: var(--purple);
+    color: white;
+    border-color: white;
+}
+
+@media (max-width: 576px) 
+{ 
+    section, .cards-container, .lottie {
+        flex-direction: column;
+        justify-content: center;
+    }
+    lottie-player{
+        width:500px!important;
+    }
+    .lottie {
+        flex-direction: column-reverse;
+    }
+    .lottie h1{
+        font-size: 2rem;
+    }
+    .scroll,  #particle-container {
+        display: none;
+    }
+
+    .flip-box-front{
+        position: relative;
+    }
 }
