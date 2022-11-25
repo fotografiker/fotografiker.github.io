@@ -1,0 +1,87 @@
+div.animate {
+
+   
+    background-color: transparent;
+    position: absolute;
+   
+
+    animation-duration: 10s;
+    animation-timing-function: linear;
+    animation-delay: 1s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    text-align: center;
+    color: white;
+    width: 150px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+.animate1 {
+animation-name: randomanim;
+animation-delay: -3s;
+
+}
+
+.animate2{
+animation-name: randomanim2;
+animation-delay: -1s;
+
+}
+.animate3{
+animation-name: randomanim3;
+animation-delay: -2s;
+
+}
+
+.animate4{
+animation-name: randomanim4;
+animation-delay: -4s;
+
+}
+
+.animate5{
+animation-name: randomanim5;
+animation-delay: -4s;
+
+}
+@keyframes randomanim {
+    0%   { left:0%; top:0;}
+    25%  {left:10%; top:40%;}
+    50%  {left:20%;top:30%; }
+    75%  {left:30%; top:20%;}
+    100% {left:40%; top:10%;}
+}
+
+@keyframes randomanim2 {
+    0%   { right:10%; top:10%;}
+    25%  {right:5%; top:30%;}
+    50%  {right:10%;top:35%; }
+    75%  {right:30%; top:25%;}
+    100% {right:40%; top:10%;}
+}
+
+@keyframes randomanim3 {
+     0%   { left:0%; bottom:-10%;}
+    25%  {left:10%; bottom:25%;}
+    50%  {left:20%;bottom:25%; }
+    75%  {left:30%; bottom:20%;}
+    100% {left:40%; bottom:10%;}
+}
+
+@keyframes randomanim4 {
+    0%   { right:10%; bottom:10%;}
+    25%  {right:5%; bottom:15%;}
+    50%  {right:10%; bottom:20%; }
+    75%  {right:30%; bottom:15%;}
+    100% {right:40%; bottom:10%;}
+}
+
+@keyframes randomanim5 {
+    0%   { right:35%; bottom:30%;}
+    25%  {right:30%; bottom:35%;}
+    50%  {right:40%;bottom:30%; }
+    75%  {right:50%; bottom:35%;}
+    100% {right:62%; bottom:30%;}
+}

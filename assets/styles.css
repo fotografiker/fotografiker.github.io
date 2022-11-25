@@ -238,3 +238,42 @@ display: flex;
   align-items: center;
 
 }
+
+.circle{
+    width:100px;
+    height:100px;
+    background-color: antiquewhite;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    border-style: solid;
+    border-width: 6px;
+}
+
+section#biz-kimiz {
+    display: inherit;
+    position: relative;
+}
+
+.animate1 .circle {
+    border-color:  var(--purple);
+}
+
+.animate2 .circle {
+    border-color: var(--green);
+}
+.animate3 .circle {
+    border-color: var(--yellow);
+}
+.animate4 .circle {
+    border-color: palevioletred;
+}
+
+.animate5 .circle {
+    border-color: teal;
+}
+.unvan{
+    font-size: 0.8rem;
+}
+.name {
+    margin:0;
+}
