@@ -254,22 +254,38 @@ section#biz-kimiz {
     position: relative;
 }
 
-.animate1 .circle {
+ .animate1 .circle {
     border-color:  var(--purple);
+}
+.animate1 .unvan {
+    color: var(--purple);
 }
 
 .animate2 .circle {
     border-color: var(--green);
 }
+
+.animate2 .unvan {
+    color: var(--green);
+}
+
 .animate3 .circle {
     border-color: var(--yellow);
+}
+.animate3 .unvan {
+    color: var(--yellow);
 }
 .animate4 .circle {
     border-color: palevioletred;
 }
-
+.animate4 .unvan {
+    color: palevioletred;
+}
 .animate5 .circle {
     border-color: teal;
+}
+.animate5 .unvan {
+    color: teal;
 }
 .unvan{
     font-size: 0.8rem;

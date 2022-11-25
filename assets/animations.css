@@ -63,8 +63,8 @@ animation-delay: -4s;
 }
 
 @keyframes randomanim3 {
-     0%   { left:0%; bottom:-10%;}
-    25%  {left:10%; bottom:25%;}
+     0%   { left:30%; bottom:-10%;}
+    25%  {left:15%; bottom:25%;}
     50%  {left:20%;bottom:25%; }
     75%  {left:30%; bottom:20%;}
     100% {left:40%; bottom:10%;}
