@@ -322,7 +322,7 @@ section#iletisim a:hover{
     border-color: white;
 }
 
-@media (max-width: 576px) 
+@media (max-width: 768px) 
 { 
     section, .cards-container, .lottie {
         flex-direction: column;
