@@ -46,6 +46,12 @@ animation-name: randomanim5;
 animation-delay: -4s;
 
 }
+
+.animate6{
+animation-name: randomanim6;
+animation-delay: -5s;
+
+}
 @keyframes randomanim {
     0%   { left:0%; top:0;}
     25%  {left:10%; top:40%;}
@@ -84,4 +90,12 @@ animation-delay: -4s;
     50%  {right:40%;bottom:30%; }
     75%  {right:50%; bottom:35%;}
     100% {right:62%; bottom:30%;}
+}
+
+@keyframes randomanim6 {
+    0%   { left:35%; bottom:30%;}
+    25%  {left:30%; bottom:35%;}
+    50%  {left:40%;bottom:30%; }
+    75%  {left:50%; bottom:35%;}
+    100% {left:62%; bottom:30%;}
 }

@@ -256,7 +256,13 @@ section#biz-kimiz {
     display: inherit;
     position: relative;
 }
-
+.circle {
+    overflow: hidden;
+}
+.circle img {
+    width:100%;
+    height:auto;
+}
  .animate1 .circle {
     border-color:  var(--purple);
 }
@@ -264,18 +270,18 @@ section#biz-kimiz {
     color: var(--purple);
 }
 
-.animate2 .circle {
+.animate3 .circle {
     border-color: var(--green);
 }
 
-.animate2 .unvan {
+.animate3 .unvan {
     color: var(--green);
 }
 
-.animate3 .circle {
+.animate2 .circle {
     border-color: var(--yellow);
 }
-.animate3 .unvan {
+.animate2 .unvan {
     color: var(--yellow);
 }
 .animate4 .circle {
@@ -289,6 +295,12 @@ section#biz-kimiz {
 }
 .animate5 .unvan {
     color: teal;
+}
+.animate6 .circle {
+    border-color: orange;
+}
+.animate6 .unvan {
+    color: orange;
 }
 .unvan{
     font-size: 0.8rem;
