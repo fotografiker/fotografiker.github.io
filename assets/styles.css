@@ -352,11 +352,17 @@ section#iletisim a:hover{
         flex-direction: column;
         justify-content: center;
     }
-    lottie-player{
-        width:500px!important;
+
+    .container-top{
+        min-height: auto;
     }
+  
     .lottie {
         flex-direction: column-reverse;
+        padding: 0;
+    }
+    lottie-player{
+        height:300px!important;
     }
     .lottie h1{
         font-size: 3rem;
@@ -374,4 +380,29 @@ section#iletisim a:hover{
         height: 50px;
         border-width: 2px;
     }
+
+    .flip-box-front,
+    .flip-box-back{
+        backface-visibility: visible;
+    }
+    .flip-box-back {
+    background-color: transparent;
+    color: white;
+    transform: rotateY(0);
+    }
+    .cards-container{
+        margin-bottom:0;
+
+    }
+    .card{
+        margin-bottom:20px;
+    }
+
+    .section-text{
+        text-align: center;
+    }
+    section h2{
+        text-align: center;
+    }
+
 }
