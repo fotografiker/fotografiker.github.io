@@ -4,14 +4,8 @@
 --purple: #8e44ad;
 --yellow: #f1c40f;
 --green : #94d05e;
-
-
-
 }
-html {
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 300;
-}
+
 .material-symbols-outlined {
     font-size: 64px!important;
   font-variation-settings:
@@ -29,11 +23,18 @@ html {
 
 html {
   scroll-behavior: smooth;
+
 }
 body{
     background-color: var(--yellow);
     color: var(--text);
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+ 
     
+}
+h1, h2, h3, h4, h5, h6, p {
+    font-weight: 300;
 }
 .container-top {
     min-height:100vh;
@@ -47,7 +48,13 @@ nav{
 }
 .logo-container {
     width:200px;
+    overflow: hidden;
 }
+.logo-container img {
+    width: 100%;
+}
+
+
 .lottie{
     display: flex;
     justify-content: space-between;
