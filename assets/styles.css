@@ -244,10 +244,15 @@ mark {
 .flip-box-front img {
   border-radius: 10px;
 }
+
 .flip-box-front{
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+
+.flip-box-front svg{
+    margin: 0 auto;
 }
 .flip-box-back {
   background-color: var(--purple);
