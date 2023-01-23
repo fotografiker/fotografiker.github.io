@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            #ruler {
+                position: relative;
+                width: 100%;
+                height: 20px;
+                background-color: white;
+                border: 1px solid black;
+            }
+            .tick {
+                position: absolute;
+                width: 1px;
+                height: 5px;
+                background-color: black;
+            }
+            #line {
+                position: absolute;
+                width: 100%;
+                height: 1px;
+                background-color: red;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="ruler"></div>
+        <div id="line"></div>
+        <p id="length"></p>
+        <script>
+            var screenWidth = window.innerWidth; // get the screen width in pixels
+                                        var screenHeight = window.innerHeight; // get the screen height in pixels
+                                        var screenDiagonal = Math.sqrt(screenWidth * screenWidth + screenHeight * screenHeight); // calculate the screen diagonal length in pixels
+                                        var screenSize = 15.5; // assume the screen size is 15.5 inches
+                                        var pixelPerInch = screenDiagonal / screenSize; // calculate the number of pixels per inch
+                                    
+                                        var startX, startY; // variables to store the starting mouse position
+                                        var endX, endY; // variables to store the ending mouse position
+                                    
+                                        // generate the tick marks on the ruler
+                                        for (var i = 0; i < screenWidth; i++) {
+                                          var tick = document.createElement("div");
+                                          tick.classList.add("tick");
+                                          tick.style.left = i + "px";
+                                          document.getElementById("ruler").appendChild(tick);
+                                        }
+                                    
+                                        // event listener for mouse down events
+                                        document.addEventListener("mousedown", function(event) {
+                                          startX = event.clientX;
+                                          startY = event.clientY;
+                                        });
+                                    
+                                        // event listener for mouse move events
+                                        document.addEventListener("mousemove", function(event) {
+                                          endX = event.clientX;
+                                          endY = event.clientY;
+                                    
+                                          // update the position of the line
+                                          document.getElementById("line").style.left = startX + "px";
+                                          document.getElementById("line").style.top = startY + "px";
+                                          document.getElementById("line").style.width = (endX - startX) + "px";
+                                          document.getElementById("line").style.height = (endY - startY) + "px";
+                                    
+                                          // calculate the length of the line
+                                          var length = Math.sqrt((endX - startX) * (endX - startX) + (endY - startY) * (endY - startY)) / pixelPerInch;
+                                          document.getElementById("length").innerHTML = length.toFixed(2) + " inches";
+                                        });
+                                    
+                                        // event listener for mouse up events
+                                        document.addEventListener("mouseup", function(event) {
+                                          endX = event.clientX;
+                                          endY = event.clientY;
+                                        });
