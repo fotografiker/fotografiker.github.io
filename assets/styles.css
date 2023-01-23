@@ -258,6 +258,7 @@ mark {
 
 .flip-box-front svg{
     margin: 0 auto;
+    margin-bottom: 10px;
 }
 .flip-box-back {
   background-color: var(--purple);
