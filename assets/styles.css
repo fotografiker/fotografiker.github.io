@@ -357,6 +357,7 @@ section#iletisim a{
     color: var(--purple);
 border-color:  var(--purple);
 border-style: solid;
+text-decoration: none;
     
     border-width: 0 4px 4px 0;
     transition: all 0.5s;
