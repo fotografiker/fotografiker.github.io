@@ -4,6 +4,7 @@
 --purple: #8e44ad;
 --yellow: #f1c40f;
 --green : #94d05e;
+--dark-purple : #291a31;
 }
 
 .material-symbols-outlined {
@@ -35,6 +36,12 @@ body{
 }
 h1, h2, h3, h4, h5, h6, p {
     font-weight: 300;
+}
+h1 {
+    font-size: 3em;
+}
+h2 {
+    font-size: 2em;
 }
 .container-top {
     min-height:100vh;
@@ -120,7 +127,7 @@ section#ne-yapiyoruz{
     justify-content: center;
 }
 section#biz-kimiz{
-    background-color: var(--black);
+    background-color: var(--dark-purple);
 }
 .lottie h1{
     font-size: 4rem;
