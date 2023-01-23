@@ -8,6 +8,9 @@
 
 
 }
+html {
+    font-family: 'Open Sans', sans-serif;
+}
 .material-symbols-outlined {
     font-size: 64px!important;
   font-variation-settings:
