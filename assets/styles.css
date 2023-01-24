@@ -71,7 +71,7 @@
          url('../assets/fonts/open-sans-v34-latin-ext_latin-700italic.ttf') format('truetype'), /* Safari, Android, iOS */
          url('../assets/fonts/open-sans-v34-latin-ext_latin-700italic.svg#OpenSans') format('svg'); /* Legacy iOS */
   }
-  
+
 .material-symbols-outlined {
     font-size: 64px!important;
   font-variation-settings:
@@ -242,6 +242,10 @@ section h4{
 .card-title{
         font-size: 20px;
   
+}
+
+.card-icon {
+    margin:0 auto;
 }
 /* markers */
 mark {
