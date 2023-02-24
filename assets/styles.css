@@ -180,6 +180,13 @@ padding : 40px;
 .text-purple{
     color: var(--purple);
 }
+main{
+    min-height:100vh;
+    padding:40px;
+}
+.nav-container {
+    padding:40px;
+}
 section {
     min-height:100vh;
 transition: all 0.5s;
@@ -246,6 +253,24 @@ section h4{
 
 .card-icon {
     margin:0 auto;
+}
+
+/* boxes */
+
+.box-container {
+    display: flex;
+    justify-content: space-evenly;
+    column-gap: 10px;
+    margin-bottom: 40px;
+    align-items: flex-start;
+}
+.box {
+    background-color: white;
+    height:200px;
+    width:200px;
+    padding:10px;
+    border-radius: 10px;
+    text-align: center;
 }
 /* markers */
 mark {
