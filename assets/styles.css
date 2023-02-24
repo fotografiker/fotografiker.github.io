@@ -271,6 +271,52 @@ section h4{
     padding:10px;
     border-radius: 10px;
     text-align: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.box svg{
+    width:70px;
+    color: black;
+}
+.box-title{
+    font-weight:bolder;
+color: black;
+
+}
+a.box {
+    transition: all 1s;
+    text-decoration: none;
+    background-color: var(--purple);
+    
+}
+
+a.box .box-title, a.box svg{
+    color:white;
+}
+a.box:hover{
+    box-shadow: 0px 0px 44px 3px rgb(56, 56, 56);
+}
+
+
+
+/* badge */
+.badge {
+    background-color: black;
+    border-radius: 5px;
+    padding:5px;
+    text-align: center;
+    font-size: 12px;
+    display: inline;
+    color:white;
+    font-weight: 600;
+}
+.box .badge{
+    position: absolute;
+    bottom:10px;
+    right:10px;
 }
 /* markers */
 mark {
