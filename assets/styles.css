@@ -275,21 +275,23 @@ section h4{
     display: flex;
     align-items: center;
     justify-content: center;
+    opacity:0.5;
 }
 
 .box svg{
     width:70px;
-    color: black;
+    color: rgb(83, 83, 83);
 }
 .box-title{
     font-weight:bolder;
-color: black;
+color: rgb(83, 83, 83);
 
 }
 a.box {
     transition: all 1s;
     text-decoration: none;
     background-color: var(--purple);
+    opacity:1;
     
 }
 
@@ -304,7 +306,7 @@ a.box:hover{
 
 /* badge */
 .badge {
-    background-color: black;
+    background-color: rgb(83, 83, 83);
     border-radius: 5px;
     padding:5px;
     text-align: center;
