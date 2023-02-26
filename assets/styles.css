@@ -134,7 +134,15 @@ nav{
 .logo-container img {
     width: 100%;
 }
+.page-header{
+    color:white;
+    margin:0 40px;
+    text-align: center;
+}
 
+.iframe-container{
+    text-align: center;
+}
 
 .lottie{
     display: flex;
