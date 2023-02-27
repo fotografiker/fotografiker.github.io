@@ -266,12 +266,14 @@ section h4{
 /* boxes */
 
 .box-container {
-    display: flex;
-    justify-content: space-evenly;
+    display: grid;
+margin: 40px 0;
     column-gap: 10px;
-    margin: 40px 0;
-    align-items: flex-start;
-    flex-wrap: wrap;
+  
+  
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    align-items: center;
+    justify-items: center;
 }
 .box {
     background-color: white;

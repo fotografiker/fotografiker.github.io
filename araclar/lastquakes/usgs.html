@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Latest Earthquakes in Turkey</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <style>
+      #mapid {
+        height: 500px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="mapid"></div>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script>
+      var map = L.map('mapid').setView([38.96, 35.24], 6);
+      var url = 'https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson';
+      var circleOptions = {
+        radius: 10,
+        fillColor: '#ff7800',
+        color: '#000',
+        weight: 1,
+        opacity: 1,
+        fillOpacity: 0.8
+      };
+      fetch(url)
+      .then(function(response) {
+          return response.json();
+        })
+        .then(function(data) {
+          L.geoJSON(data, {
+            pointToLayer: function(feature, latlng) {
+              return L.circleMarker(latlng, circleOptions);
+            },
+            filter: function(feature, layer) {
+              return feature.properties.place.toLowerCase().includes('turkey') && feature.properties.mag >= 3;
+            }
+          }).addTo(map);
+        });
+    </script>
+  </body>
+</html>
