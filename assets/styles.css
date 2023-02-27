@@ -119,7 +119,9 @@ padding : 40px;
 position: relative;
 
 }
-
+hr {
+    border-color:white;
+}
 nav{
     display:flex;
     justify-content: space-between;
