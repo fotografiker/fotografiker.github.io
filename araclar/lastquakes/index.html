@@ -34,7 +34,7 @@
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
         <style>
           #mapid {
-            height: 80vh;
+            height: 60vh;
             z-index:1;
           }
         </style>
@@ -110,11 +110,38 @@
 <h1 class="page-header">Kandilli Rasathanesi Son Depremler Haritası</h1>
 <p style="text-align: center; color:white; margin-bottom:40px;">Şiddeti 3 ve üzeri olan son depremleri gösterir.</p>
 <div id="mapid"></div>
+<h2 style="color:white; margin:40px 0 0 0;" class="text-center">Son 50 Deprem </h2>
+
+<div class="text-center pulse" style="color:white;">
+    <svg  style="height:20px" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" /> 
+  </svg> 
+  <span  style="font-size:18px;">Gerçek Zamanlı Veri</span>
+  <svg style="height:20px" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" /> 
+</svg> 
+</div>
+
+  
+<table class="table table-no-border">
+    <thead>
+        <tr>
+            <th>Yer</th>
+            <th>Tarih</th>
+            <th>Saat</th>
+            <th>Derinlik</th>
+            <th>Şiddet</th>
+        </tr>
+    </thead>
+    <tbody id="maplist"></tbody>
+</table>
     </main>
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <script>
-      var map = L.map("mapid").setView([38.9637, 35.2433], 6);
-
+      var map = L.map("mapid", {
+        scrollWheelZoom: false
+    }).setView([38.9637, 35.2433], 6);
+      var tbody = document.getElementById("maplist");
       L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
         attribution: "&copy; <a href='https://www.openstreetmap.org/'>OpenStreetMap</a> contributors",
         maxZoom: 18,
@@ -128,10 +155,17 @@
         .then((response) => response.json())
         .then((data) => {
           data.result.forEach((earthquake) => {
+            var new_date  = earthquake.date_day.split("-");
+            new_date = new_date[2] + '-' + new_date[1] + '-' + new_date[0]
             // Create a marker for each earthquake
             if(earthquake.mag>3){
                 var marker = L.marker([earthquake.lat, earthquake.lng]).addTo(map);
-
+                if(earthquake.mag>3.5) {
+                    marker._icon.classList.add('marker-warning')
+                }
+                if(earthquake.mag>=4){
+                    marker._icon.classList.add('marker-danger')
+                }
                 // Add a popup to the marker with earthquake information
                 marker
                   .bindPopup(
@@ -140,12 +174,39 @@
                     Derinlik: ${earthquake.depth} km<br>
                     Merkez üssü: ${earthquake.location_properties.epiCenter.name}<br>
                   
-                    Tarih: ${earthquake.date_day}<br>
+                    Tarih: ${new_date}<br>
                     Saat: ${earthquake.date_hour}
                     `
                   )
                   .openPopup();
             }
+
+            // list oluştur
+            tr = document.createElement('tr')
+            td1 = document.createElement('td')
+            td2 = document.createElement('td')
+            td3 = document.createElement('td')
+            td4 = document.createElement('td')
+            td5 = document.createElement('td')
+
+            td4.classList.add('text-center')
+            td5.classList.add('text-center')
+
+            if(earthquake.mag>3){
+                td5.classList.add('text-warning')
+            } 
+            if (earthquake.mag>=4) {
+                td5.classList.add('text-danger')
+            }
+
+            td1.append(earthquake.title)
+            td2.append(new_date)
+            td3.append(earthquake.date_hour)
+            td4.append(earthquake.depth)
+            td5.append(earthquake.mag)
+            
+            tr.append(td1,td2,td3,td4,td5)
+            tbody.append(tr);
             
           });
         });
