@@ -703,8 +703,9 @@ height: 100vh;
     }
 
     .box{
-        width:150px;
-        height:150px;
+        width:85%;
+
+        min-height:150px;
     }
 
 }
