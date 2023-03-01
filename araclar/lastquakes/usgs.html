@@ -40,5 +40,27 @@
           }).addTo(map);
         });
     </script>
+    <script>
+        var xhr = new XMLHttpRequest();
+xhr.onreadystatechange = function() {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+        if (xhr.status === 200) {
+            var xml = xhr.responseXML;
+            var items = xml.getElementsByTagName('item');
+            for (var i = 0; i < items.length; i++) {
+                var title = items[i].getElementsByTagName('title')[0].textContent;
+                var description = items[i].getElementsByTagName('description')[0].textContent;
+                console.log('Title:', title);
+                console.log('Description:', description);
+            }
+        } else {
+            console.log('Error:', xhr.status);
+        }
+    }
+};
+xhr.open('GET', 'https://www.emsc-csem.org/service/rss/rss.php?typ=emsc');
+xhr.send();
+
+    </script>
   </body>
 </html>
