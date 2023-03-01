@@ -702,6 +702,11 @@ height: 100vh;
         padding:1px;
     }
 
+    .box{
+        width:150px;
+        height:150px;
+    }
+
 }
 @media (min-width:768px) and (max-width: 900px) {
     .box-container{
