@@ -1,0 +1,501 @@
+
+<!DOCTYPE html> 
+<html lang="tr"> 
+    <head> 
+        <meta charset="UTF-8"> 
+        <meta http-equiv = "X-UA-Compatible" content = "IE=edge"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <meta name="author" content="Çağrı Öner"/>
+        
+        <title>Sivil Toplum için Teknoloji Kolektifi</title>
+
+        <!-- SEO -->
+        <meta name="description" content="Sivil Topluma Teknoloji Transferi ve Sivil Toplumda Dijital Dönüşüm için Yazılım Geliştirerek Sosyal Fayda Sağlamak">
+        <meta property="og:title" content="Sivil Alanda Dijital Dönüşüm, Yazılım Alanında Sivil Dönüşüm">
+        <meta property="og:image" content="https://siviltoplum.tech/assets/images/logo_purple2.png" />
+        <meta property="og:description" content="Sivil Topluma Teknoloji Transferi ve Sivil Toplumda Dijital Dönüşüm için Yazılım Geliştirmek ve Dijital Okuryazarlığı Artırmak">
+        <meta property="og:locale" content="tr_TR">
+        <meta name="twitter:card" content="Sivil Alanda Dijital Dönüşüm, Yazılım Alanında Sivil Dönüşüm">
+        <meta name="theme-color" content="#f1c40f" />
+       
+        <meta name="keywords" content="sivil toplum, yazılım, teknoloji, dijital dönüşüm, dijital okuryazarlık, sosyal girişim"/>
+
+
+
+        <!-- favicon -->
+        <link rel="icon" type="image/png" href="../../assets/images/logo_kare.png">
+
+    
+        <!-- helper css -->
+        <link rel="stylesheet" href="../../assets/bubbles.css ">
+        <link rel="stylesheet" href="../../assets/menu.css ">
+        <link rel="stylesheet" href="../../assets/animations.css"> 
+
+        
+
+        <!-- main css -->
+        <link rel="stylesheet" href="../../assets/styles.css ">
+
+
+        <!-- scripts -->
+        <script defer="defer" src="../../assets/scripts.js"></script>
+        <script defer="defer" src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script> 
+
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-H8H4TBF7TG"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-H8H4TBF7TG');
+        </script>
+        <script
+        type="module"
+        src="https://gradio.s3-us-west-2.amazonaws.com/3.19.1/gradio.js"
+    ></script>
+    <style>
+     
+          
+        .label {
+          display: flex;
+          align-items: center;
+          cursor: pointer;
+          color: #394a56;
+          justify-content: space-between;
+          margin-bottom:20px;
+          background-color: #eee;
+          padding:20px;
+          border-radius: 20px;
+        }
+        #password {
+            display: block;
+            margin:20px 0;
+            appearance: none;
+            border: 0;
+            background-color: #eee;
+            width:100%;
+            padding:20px;
+            border-radius: 20px;
+            font-size:1em;
+            color: var(--purple);
+            height:70px;
+
+        }
+        .output-container {
+            position: relative;
+            display: none;
+          
+        }
+        #copy{
+            text-decoration: none;
+            font-size:10px;
+            padding:5px;
+            background-color: var(--purple);
+            color:white;
+            position: absolute;
+            right:0;
+            top:0;
+            border-radius: 0 0 10px 10px;
+            text-transform: uppercase;
+            font-weight:800;
+            transition: all 0.4s;
+
+        }
+        .label-text {
+         display: inline-block;
+         text-align: left;
+         margin-left:10px;
+        }
+        
+        .toggle {
+          isolation: isolate;
+          position: relative;
+          height: 30px;
+          width: 60px;
+          border-radius: 15px;
+          overflow: hidden;
+          box-shadow:
+            -8px -4px 8px 0px #ffffff,
+            8px 4px 12px 0px #d1d9e6,
+            4px 4px 4px 0px #d1d9e6 inset,
+            -4px -4px 4px 0px #ffffff inset;
+        }
+        
+        .toggle-state {
+          display: none;
+        }
+        
+        .indicator {
+          height: 100%;
+          width: 200%;
+          background: #ecf0f3;
+          border-radius: 15px;
+          transform: translate3d(-75%, 0, 0);
+          transition: transform 0.4s cubic-bezier(0.85, 0.05, 0.18, 1.35);
+          box-shadow:
+            -8px -4px 8px 0px #ffffff,
+            8px 4px 12px 0px #d1d9e6;
+        }
+        
+        .toggle-state:checked ~ .indicator {
+          transform: translate3d(25%, 0, 0);
+          
+        }
+        .inner{
+          height:20px;
+          width:20px;
+          background-color:#ccc;
+          border-radius:100%;
+          margin-top:5px;
+          position:absolute;
+          right:5px;
+        }
+        .toggle-state:checked ~ .indicator .inner {
+         left:5px;
+          background-color:var(--purple);
+        }   
+#generate {
+    border:0;
+    padding:20px;
+    display: block;
+    width:100%;
+    border-radius:10px;
+    background-color: var(--purple);
+    color:white;
+    font-size:1em;
+    cursor: pointer;
+    transition : all 0.4s;
+    opacity:1;
+}
+#generate:hover{
+    opacity: 0.5;
+}
+        main {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .center-panel{
+            background:white;
+            padding:30px;
+            border-radius: 20px;
+            min-width:400px;
+        }
+        .text-container {
+            display: flex;
+            align-items: center;
+        }
+
+
+        .field-title {
+            position: absolute;
+            top: -10px;
+            left: 8px;
+            transform: translateY(-50%);
+            font-weight: 800;
+            color: #ccc;
+            text-transform: uppercase;
+            font-size: 0.65rem;
+            pointer-events: none;
+            user-select: none;
+        }
+
+        input[type="range"] {
+            /* To remove default styles appplied by webkit browsers */
+            -webkit-appearance: none; 
+        
+            width: 25em;
+            background: transparent;
+            position: relative;
+        }   
+        
+        input[type="range"]:focus {
+            /* To remove default (mostly blue) outline appplied by browsers on :focus */
+            outline: 0;
+        }
+        
+        .range__slider {
+            position: relative;
+            width: 100%;
+            height: 70px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+
+            margin: 20px 0;
+            background-color: #eee;
+
+          }
+          .range__slider::before, .range__slider::after {
+            position: absolute;
+            color: var(--purple);
+            font-size: 0.9rem;
+            font-weight: bold;
+          }
+          .range__slider::before {
+            content: attr(data-min);
+            left: 10px;
+          }
+          .range__slider::after {
+            content: attr(data-max);
+            right: 10px;
+          }
+          .range__slider .length__title::after {
+            content: attr(data-length);
+            position: absolute;
+            right: -16px;
+            font-variant-numeric: tabular-nums;
+            color: var(--purple);
+          }
+          
+          #slider {
+            -webkit-appearance: none;
+            width: calc(100% - (70px));
+            height: 2px;
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.314);
+            outline: none;
+            padding: 0;
+            margin: 0;
+            cursor: pointer;
+          }
+          #slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: var(--purple);
+            border:4px solid #feffff;
+            box-shadow:
+            0px 0px 8px 0px #ffffff,
+            8px 4px 12px 0px #d1d9e6;
+            cursor: pointer;
+            transition: all 0.15s ease-in-out;
+          }
+          #slider::-webkit-slider-thumb:hover {
+            background: #d4d4d4;
+            transform: scale(1.2);
+          }
+          #slider::-moz-range-thumb {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: var(--purple);
+            border:4px solid #feffff;
+            box-shadow:
+            0px 0px 8px 0px #ffffff,
+            8px 4px 12px 0px #d1d9e6;
+            cursor: pointer;
+            transition: all 0.15s ease-in-out;
+
+          }
+          #slider::-moz-range-thumb:hover {
+            background: #d4d4d4;
+          }
+    </style>
+    </head> 
+
+
+<body>
+    <div class="nav-container">
+        <nav>
+            <div class="logo-container">
+                <a href="../../"><img src="../../assets/images/logo_purple2.png " alt="Sivil Toplum için Teknoloji Kolektifi Logo" aria-label="Sivil Toplum için Teknoloji Kolektifi Logo"></a>             </div>
+                <div class="menu">
+                    <div class="menu__icon">
+                        <div class="menu__icon__bar"></div>
+                        <div class="menu__icon__bar"></div>
+                        <div class="menu__icon__bar"></div>
+                    </div>
+
+                    <ul class="menu__list">
+                        <li>
+                            <a href="../../" aria-label="Ana Sayfa">Ana Sayfa</a>
+                        </li>
+
+                        <li>
+                            <a href="../../#first" aria-label="Nereden çıktı?">Nereden Çıktı?</a>
+                        </li>
+
+                        <li>
+                            <a  href="../../#ne-yapiyoruz" aria-label="Ne yapıyoruz?">Ne Yapıyoruz?</a>
+                        </li>
+
+                        <li>
+                            <a href="../../#biz-kimiz" aria-label="Biz kimiz?">Biz Kimiz?</a>
+                        </li>
+                        <li>
+                            <a href="../../#iletisim" aria-label="İletişim">İletişim</a>
+                        </li>
+                        <li>
+                            <a href="../../araclar" aria-label="English">Araçlar</a>
+                        </li>
+                        <li>
+                            <a href="../../en" aria-label="English">English</a>
+                        </li>
+
+
+                    </ul>
+                </div>
+            </nav>
+
+    </div>
+    <h1 class="page-header">Şifre Üretici</h1>
+    <main >
+        
+
+
+
+    <div class="center-panel">
+        <div class="length range__slider" data-min="4" data-max="32">
+            <div class="length__title field-title" data-length='0'>uzunluk:</div>
+            <input id="slider" type="range" min="4" max="32" value="12" />
+        </div>
+      
+    
+     
+    
+        <label class="label">
+            <div class="text-container">
+                <img width="20px" src="../../assets/icons/letter-case.svg" alt="at icon">
+                <div class="label-text">Büyük harfleri dahil et</div>
+            </div>
+           
+            <div class="toggle">
+                <input class="toggle-state" id="uppercase" type="checkbox" name="check" value="check" checked="checked" />
+                <div class="indicator"><div class="inner"></div></div>
+              </div>
+             
+       
+        </label>
+    
+        <label class="label">
+            <div class="text-container">
+                <img width="20px" src="../../assets/icons/hundred-points.svg" alt="at icon">
+                <div class="label-text">Rakamları dahil et</div>
+            </div>
+            
+            <div class="toggle">
+                <input class="toggle-state" id="numbers" type="checkbox" name="check" value="check" checked="checked"/>
+                <div class="indicator"><div class="inner"></div></div>
+              </div>
+             
+       
+        </label>
+    
+        <label class="label">
+            <div class="text-container">
+                <img width="20px" src="../../assets/icons/at.svg" alt="at icon">
+                <div class="label-text">Sembolleri dahil et</div>
+            </div>
+           
+            <div class="toggle">
+                <input class="toggle-state" id="symbols" type="checkbox" name="check" value="check" />
+                <div class="indicator"><div class="inner"></div></div>
+              </div>
+              
+       
+        </label>
+    
+      
+    
+        <button id="generate">Şifre Üret</button>
+        
+    <div class="output-container">
+        <input id="password" ></input>
+        <a href="#copy" id="copy">Kopyala</a>
+    </div>
+        
+    </div>
+    </main>
+
+    <script>
+        const sliderProps = {
+            fill: "#8e44ad",
+            background: "#ccc",
+        };
+        
+        // Selecting the Range Slider container which will effect the LENGTH property of the password.
+        const slider = document.querySelector(".range__slider");
+        
+        // Text which will show the value of the range slider.
+        const sliderValue = document.querySelector(".length__title");
+        
+        // Using Event Listener to apply the fill and also change the value of the text.
+        slider.querySelector("input").addEventListener("input", event => {
+            sliderValue.setAttribute("data-length", event.target.value);
+            applyFill(event.target);
+        });
+        // Selecting the range input and passing it in the applyFill func.
+        applyFill(slider.querySelector("input"));
+        // This function is responsible to create the trailing color and setting the fill.
+        function applyFill(slider) {
+            const percentage = (100 * (slider.value - slider.min)) / (slider.max - slider.min);
+            const bg = `linear-gradient(90deg, ${sliderProps.fill} ${percentage}%, ${sliderProps.background} ${percentage +
+                    0.1}%)`;
+            slider.style.background = bg;
+            sliderValue.setAttribute("data-length", slider.value);
+        }
+      const generatePassword = () => {
+        const length = document.getElementById('slider').value;
+        const uppercase = document.getElementById('uppercase').checked;
+        const numbers = document.getElementById('numbers').checked;
+        const symbols = document.getElementById('symbols').checked;
+        const lowercase = 'abcdefghijklmnopqrstuvwxyz';
+        const uppercaseLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        const numbersList = '0123456789';
+        const symbolsList = '!@#$%^&*()_+~`|}{[]\\\\:;?><,./-=';
+
+        let characters = lowercase;
+        let password = '';
+        if (uppercase) {
+          characters += uppercaseLetters;
+        }
+        if (numbers) {
+          characters += numbersList;
+        }
+        if (symbols) {
+          characters += symbolsList;
+        }
+
+        for (let i = 0; i < length; i++) {
+          password += characters.charAt(Math.floor(Math.random() * characters.length));
+        }
+
+        return password;
+      };
+      const passwordField = document.getElementById('password');
+      const outputField = document.querySelector('.output-container');
+      const copyButton = document.getElementById('copy');
+      const generateButton = document.getElementById('generate');
+
+      const updatePassword = () => {
+        
+        const password = generatePassword();
+        passwordField.value = password;
+        outputField.style.display = "block";
+        copyButton.innerText = "Kopyala";
+
+        return password;
+      };
+
+      
+      generateButton.addEventListener('click', updatePassword);
+
+     
+      copyButton.addEventListener('click', (e) => {
+        e.preventDefault();
+        const passwordToCpoy = passwordField.value;
+        console.log(passwordToCpoy);
+        copyButton.innerText = "Kopyalandı";
+        navigator.clipboard.writeText(passwordToCpoy);
+
+      });
+    </script>
+
+  </body>
+</html>
