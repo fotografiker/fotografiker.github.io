@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>QR Code Generator</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js" integrity="sha512-ZDSPMa/JM1D+7kdg2x3BsruQ6T/JpJo3jWDWkCZsP+5yVyp1KfESqLI+7RqB5k24F7p2cV7i2YHh/890y6P6Sw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+
+
+    <div>
+		<label for="name">Ad</label>
+		<input type="text" id="name">
+	</div>
+	<div>
+		<label for="last_name">Soyad</label>
+		<input type="text" id="last_name">
+	</div>
+	<div>
+		<label for="title">Ünvan</label>
+		<input type="text" id="title">
+	</div>
+
+        <div class="form-group">
+            <label for="email">E-posta adresi:</label>
+            <input type="text" class="form-control" id="email" name="email">
+        </div>
+        <div class="form-group">
+            <label for="email2">E-posta adresi 2:</label>
+            <input type="text" class="form-control" id="email2" name="email2">
+        </div>
+        <div class="form-group">
+            <label for="tel">Telefon:</label>
+            <input type="text" class="form-control" id="tel" name="tel">
+        </div>
+        <div class="form-group">
+            <label for="mobile">Mobil Telefon:</label>
+            <input type="text" class="form-control" id="mobile" name="mobile">
+        </div>
+        <div class="form-group">
+            <label for="home_address">Ev adresi:</label>
+            <input type="text" class="form-control" id="home_address" name="home_address">
+        </div>
+        <div class="form-group">
+            <label for="work_address">İş adresi:</label>
+            <input type="text" class="form-control" id="work_address" name="work_address">
+        </div>
+        <div class="form-group">
+            <label for="organisation">İşyeri Adı:</label>
+            <input type="text" class="form-control" id="organisation" name="organisation">
+        </div>
+        <div class="form-group">
+            <label for="website">Websitesi:</label>
+            <input type="text" class="form-control" id="website" name="website">
+        </div>
+
+        <button type="button" id="form" class="btn btn-primary" >Dijital Kartvizit Oluşturun</button>
+
+        <div id="qr-code-container"></div>
+
+        <a id="download-link" style="display: none;"></a>
+
+       
+<script>
+    function generateQRCode(data) {
+        // Create the vCard text as a string
+        const vcardTemplate = `BEGIN:VCARD;CHARSET=iso-8859-1
+VERSION:4.0
+N:${data.last_name};${data.name}
+FN:${data.name} ${data.last_name}
+ORG:${data.organisation}
+TITLE:${data.title}
+EMAIL;PREF=1;TYPE=INTERNET:${data.email}
+EMAIL:${data.email2}
+TEL;TYPE#work,voice;VALUE#uri:tel:${data.tel}
+TEL;TYPE#mobile,voice;VALUE#uri:tel:${data.mobile}
+ADR;TYPE#WORK;PREF#1:${data.work_address}
+ADR;TYPE#HOME:${data.home_address}
+URL:${data.website}
+END:VCARD`;
+
+        // Create the QR code image
+        const qrCode = new QRCode(vcardTemplate, {
+            version: 4,
+            errorCorrectionLevel: 'L',
+            margin: 10,
+            scale: 10
+        });
+
+        // Get the SVG element for the QR code
+        const svgElement = qrCode.svg();
+
+        // Insert the SVG element into the page
+        const qrCodeElement = document.getElementById('qr-code');
+        qrCodeElement.innerHTML = svgElement;
+
+        // Convert the SVG element to a PNG image
+        const canvas = document.createElement('canvas');
+        const svgXml = new XMLSerializer().serializeToString(qrCodeElement.firstChild);
+        const svgWidth = qrCodeElement.firstChild.getAttribute('width');
+        const svgHeight = qrCodeElement.firstChild.getAttribute('height');
+        canvas.width = parseInt(svgWidth);
+        canvas.height = parseInt(svgHeight);
+        const ctx = canvas.getContext('2d');
+        const img = new Image();
+        img.onload = function() {
+            ctx.drawImage(img, 0, 0);
+            const pngData = canvas.toDataURL('image/png');
+
+            // Show the download button
+            const downloadButton = document.getElementById('download-button');
+            downloadButton.style.display = 'block';
+
+            // Set the href attribute of the download button to the PNG data
+            downloadButton.href = pngData;
+        };
+        img.src = 'data:image/svg+xml;base64,' + btoa(svgXml);
+    }
+
+    const form = document.getElementById('form');
+    form.addEventListener('click', function(event) {
+        event.preventDefault();
+        const data = {
+            name: document.getElementById('name').value,
+            last_name: document.getElementById('last_name').value,
+            title: document.getElementById('title').value,
+            email: document.getElementById('email').value,
+            email2: document.getElementById('email2').value,
+            tel: document.getElementById('tel').value,
+            mobile: document.getElementById('mobile').value,
+            home_address: document.getElementById('home_address').value,
+            work_address: document.getElementById('work_address').value,
+            organisation: document.getElementById('organisation').value,
+            website: document.getElementById('website').value
+        };
+        generateQRCode(data);
+    });
+</script>
+</body>
+</html>
