@@ -616,7 +616,11 @@ section#iletisim a:hover{
 .table td, .table th {
     padding:10px;
 }
-
+.neu{
+    background: #F0F0F3;
+box-shadow: -5px -5px 20px #FFFFFF, 5px 5px 20px rgba(174, 174, 192, 0.5);
+border-radius: 10px;
+}
 /* particles-js */
 #particles-js {
 height: 100vh;

@@ -2,11 +2,21 @@
 <html>
 <head>
 	<title>QR Code Generator</title>
+    <link rel="stylesheet" href="../../assets/styles.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js" integrity="sha512-ZDSPMa/JM1D+7kdg2x3BsruQ6T/JpJo3jWDWkCZsP+5yVyp1KfESqLI+7RqB5k24F7p2cV7i2YHh/890y6P6Sw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
-<body>
+<body style="background-color:#F0F0F3; ">
+    <div style=" display:flex; justify-content:center; align-items:center; height:100vh; column-gap:30px;">
+        <div class="mybox neu" style="width:200px;height:200px; ">
+            <div class="neu" style="width:40px; height:40px; border-radius:50%; margin:20px;"></div>
+        </div>
+        <div class="mybox neu" style="width:200px;height:200px; "></div>
+        <div class="mybox neu" style="width:200px;height:200px; "></div>
+        <div class="mybox neu" style="width:200px;height:200px; "></div>
+    </div>
 
 
+<!-- <div>
     <div>
 		<label for="name">Ad</label>
 		<input type="text" id="name">
@@ -58,6 +68,7 @@
         <div id="qr-code-container"></div>
 
         <a id="download-link" style="display: none;"></a>
+</div> -->
 
        
 <script>

@@ -146,20 +146,9 @@
         maxZoom: 18,
       }).addTo(map);
 
-      fetch ("https://d64a-94-54-24-131.eu.ngrok.io/deprem",{ 
-        method: "GET" ,
-        
-        
-      })
-        .then((response) => response.json())
-        .then((data) => {
-            data.forEach((eq) => {
-                p = document.createElement('p')
-                p.append(eq.sehir)
-                document.body.append(p)
-            })
-        })
 
+      fetch("https://a148-94-54-24-131.ngrok.io/",{method:"GET"})
+      .then((response)=>console.log(response))
       // Fetch earthquake data from the API
       fetch(
         "https://api.orhanaydogdu.com.tr/deprem/live.php?limit=50",
